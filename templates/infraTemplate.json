@@ -1,0 +1,225 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dbname": {
+      "type": "string"
+    },
+    "dblocation": {
+      "type": "string"
+    },
+    "dblocationName": {
+      "type": "string"
+    },
+    "defaultExperience": {
+      "type": "string"
+    },
+    "pairedLocation": {
+      "type": "string"
+    },
+    "pairedLocationName": {
+      "type": "string"
+    },
+    "resourceName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Managed Cluster resource."
+      }
+    },
+    "dnsPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
+      }
+    },
+    "osDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 0,
+      "metadata": {
+        "description": "Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize."
+      },
+      "minValue": 0,
+      "maxValue": 1023
+    },
+    "agentCount": {
+      "type": "int",
+      "defaultValue": 3,
+      "metadata": {
+        "description": "The number of agent nodes for the cluster."
+      },
+      "minValue": 1,
+      "maxValue": 50
+    },
+    "agentVMSize": {
+      "type": "string",
+      "defaultValue": "Standard_D2_v2",
+      "metadata": {
+        "description": "The size of the Virtual Machine."
+      }
+    },
+    "osType": {
+      "type": "string",
+      "defaultValue": "Linux",
+      "allowedValues": [
+        "Linux"
+      ],
+      "metadata": {
+        "description": "The type of operating system."
+      }
+    },
+    "kubernetesVersion": {
+      "type": "string",
+      "defaultValue": "1.7.7",
+      "metadata": {
+        "description": "The version of Kubernetes."
+      }
+    },
+    "orchestratorType": {
+      "type": "string",
+      "defaultValue": "Kubernetes",
+      "allowedValues": [
+        "Kubernetes",
+        "DCOS",
+        "Swarm"
+      ],
+      "metadata": {
+        "description": "The type of orchestrator used to manage the applications on the cluster."
+      }
+    },
+    "enableHttpApplicationRouting": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "boolean flag to turn on and off of http application routing"
+      }
+    },
+    "networkPlugin": {
+      "type": "string",
+      "allowedValues": [
+        "azure",
+        "kubenet"
+      ],
+      "metadata": {
+        "description": "Network plugin used for building Kubernetes network."
+      }
+    },
+    "maxPods": {
+      "type": "int",
+      "defaultValue": 30,
+      "metadata": {
+        "description": "Maximum number of pods that can run on a node."
+      }
+    },
+    "enableRBAC": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "Boolean flag to turn on and off of RBAC"
+      }
+    },
+    "servicePrincipalClientId": {
+      "type": "string",
+      "metadata": {
+        "description": "The ID for the service principal"
+      }
+    },
+    "servicePrincipalClientSecret": {
+      "type": "securestring",
+      "metadata": {
+        "description": "The secret password associated with the service principal."
+      }
+    },
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Administrator username for the cluster VMs"
+      }
+    },
+    "sshRSAPublicKey": {
+      "type": "string",
+      "metadata": {
+        "description": "RSA Public Key for accessing cluster VMs"
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-04-08",
+      "kind": "GlobalDocumentDB",
+      "type": "Microsoft.DocumentDb/databaseAccounts",
+      "name": "[parameters('dbname')]",
+      "location": "[parameters('dblocation')]",
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "locations": [
+          {
+            "id": "[concat(parameters('dbname'), '-', parameters('dblocation'))]",
+            "failoverPriority": 0,
+            "locationName": "[parameters('dblocationName')]"
+          },
+          {
+            "id": "[concat(parameters('dbname'), '-', parameters('pairedLocation'))]",
+            "failoverPriority": 1,
+            "locationName": "[parameters('pairedLocationName')]"
+          }
+        ],
+        "isVirtualNetworkFilterEnabled": false,
+        "virtualNetworkRules": [],
+        "dependsOn": []
+      },
+      "tags": {
+        "defaultExperience": "[parameters('defaultExperience')]"
+      }
+    },
+    {
+      "apiVersion": "2018-03-31",
+      "type": "Microsoft.ContainerService/managedClusters",
+      "location": "[parameters('dblocation')]",
+      "name": "[parameters('resourceName')]",
+      "properties": {
+        "orchestratorProfile": {
+          "orchestratorType": "[parameters('orchestratorType')]"
+        },
+        "kubernetesVersion": "[parameters('kubernetesVersion')]",
+        "enableRBAC": "[parameters('enableRBAC')]",
+        "dnsPrefix": "[parameters('dnsPrefix')]",
+        "addonProfiles": {
+          "httpApplicationRouting": {
+            "enabled": "[parameters('enableHttpApplicationRouting')]"
+          }
+        },
+        "agentPoolProfiles": [
+          {
+            "name": "agentpool",
+            "osDiskSizeGB": "[parameters('osDiskSizeGB')]",
+            "count": "[parameters('agentCount')]",
+            "vmSize": "[parameters('agentVMSize')]",
+            "osType": "[parameters('osType')]",
+            "storageProfile": "ManagedDisks"
+          }
+        ],
+        "servicePrincipalProfile": {
+          "ClientId": "[parameters('servicePrincipalClientId')]",
+          "Secret": "[parameters('servicePrincipalClientSecret')]"
+        },
+        "linuxProfile": {
+          "adminUsername": "[parameters('adminUsername')]",
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "[parameters('sshRSAPublicKey')]"
+              }
+            ]
+          }
+        }
+      },
+      "tags": {}
+    }
+  ],
+  "outputs": {
+    "controlPlaneFQDN": {
+      "type": "string",
+      "value": "[reference(concat('Microsoft.ContainerService/managedClusters/', parameters('resourceName'))).fqdn]"
+    }
+  }
+}

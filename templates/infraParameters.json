@@ -1,1 +1,60 @@
-
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dbname": {
+      "value": "lsycosmosdb"
+    },
+    "dblocation": {
+      "value": "westeurope"
+    },
+    "dblocationName": {
+      "value": "West Europe"
+    },
+    "defaultExperience": {
+      "value": "DocumentDB"
+    },
+    "pairedLocation": {
+      "value": "northeurope"
+    },
+    "pairedLocationName": {
+      "value": "North Europe"
+    },
+    "resourceName": {
+      "value": "lsykubeapp"
+    },
+    "dnsPrefix": {
+      "value": "lsykubeapp"
+    },
+    "agentCount": {
+      "value": 3
+    },
+    "agentVMSize": {
+      "value": "Standard_DS1_v2"
+    },
+    "kubernetesVersion": {
+      "value": "1.10.3"
+    },
+    "enableHttpApplicationRouting": {
+      "value": true
+    },
+    "networkPlugin": {
+      "value": "kubenet"
+    },
+    "enableRBAC": {
+      "value": true
+    },
+    "servicePrincipalClientId": {
+      "value": "58fd25e5-1ae9-45b8-9bd4-e8aba5ea8e09"
+    },
+    "servicePrincipalClientSecret": {
+      "value": "ALsecret1234"
+    },
+    "adminUsername": {
+      "value": "alAdmin"
+    },
+    "sshRSAPublicKey": {
+      "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQ4gsXhNtOPF/U5jZ5ysJyK1MUMIB1abjkDtf3aZgssP9yx6iHjTsiJS+SlUAaGZjpNOyJk+3mWwIecDYNQOciD53IhstgNqrsboWmCRUrUvyiJEjjsWc/Im/OAdDw0fOsFHPc64z/6+QvX2zgZlAFlWOLm8tNDQa2MbmFjnQxs4fTnHIC6JkpMtnzgrw9RAJMWvr8/TQ6hnmTQbA/2OK3l+v3pOxoVTfMoLcH7mUvME9d/IH9iHnH2v2I+1NO8Oa0Kcmfw3I9ijqxYp9zm0Ap18B/8bPo+3Y++urc7ioo1Grb8aVa0+C1IFat7yiHe31bH2gGz8eU7mt3RRFIxHpd lily@Lilys-MacBook-Pro.local"
+    }
+  }
+}
