@@ -1,0 +1,355 @@
+{
+  "source": 2,
+  "revision": 31,
+  "description": null,
+  "createdBy": {
+    "displayName": "Vincent Cheung",
+    "url": "https://app.vssps.visualstudio.com/A1576a92f-fb6f-4f6f-85ed-75b0c9d16617/_apis/Identities/001677bb-7b6b-6deb-bb82-379cbe19f842",
+    "_links": {
+      "avatar": {
+        "href": "https://vc13837.visualstudio.com/_apis/GraphProfile/MemberAvatars/aad.MDAxNjc3YmItN2I2Yi03ZGViLWJiODItMzc5Y2JlMTlmODQy"
+      }
+    },
+    "id": "001677bb-7b6b-6deb-bb82-379cbe19f842",
+    "uniqueName": "vincent.cheung@automationlogic.onmicrosoft.com",
+    "imageUrl": "https://vc13837.visualstudio.com/_api/_common/identityImage?id=001677bb-7b6b-6deb-bb82-379cbe19f842",
+    "descriptor": "aad.MDAxNjc3YmItN2I2Yi03ZGViLWJiODItMzc5Y2JlMTlmODQy"
+  },
+  "createdOn": "2018-07-06T14:06:36.543Z",
+  "modifiedBy": {
+    "displayName": "Lily She-Yin",
+    "url": "https://app.vssps.visualstudio.com/A1576a92f-fb6f-4f6f-85ed-75b0c9d16617/_apis/Identities/4c0c7bff-2803-6c8b-b2c3-a10ca31f9386",
+    "_links": {
+      "avatar": {
+        "href": "https://vc13837.visualstudio.com/_apis/GraphProfile/MemberAvatars/aad.NGMwYzdiZmYtMjgwMy03YzhiLWIyYzMtYTEwY2EzMWY5Mzg2"
+      }
+    },
+    "id": "4c0c7bff-2803-6c8b-b2c3-a10ca31f9386",
+    "uniqueName": "lily@automationlogic.onmicrosoft.com",
+    "imageUrl": "https://vc13837.visualstudio.com/_api/_common/identityImage?id=4c0c7bff-2803-6c8b-b2c3-a10ca31f9386",
+    "descriptor": "aad.NGMwYzdiZmYtMjgwMy03YzhiLWIyYzMtYTEwY2EzMWY5Mzg2"
+  },
+  "modifiedOn": "2018-07-09T14:44:20.177Z",
+  "isDeleted": false,
+  "variables": {
+    "clusterName": {
+      "value": "burgercluster5"
+    },
+    "dbname": {
+      "value": "burgermosdb12"
+    },
+    "registryName": {
+      "value": "burgertry1"
+    },
+    "resourcegroup": {
+      "value": "burgertest1"
+    },
+    "servicePrincipalClientId": {
+      "value": null,
+      "isSecret": true
+    },
+    "servicePrincipalClientSecret": {
+      "value": null,
+      "isSecret": true
+    },
+    "System.Debug": {
+      "value": "true"
+    }
+  },
+  "variableGroups": [],
+  "environments": [
+    {
+      "id": 2,
+      "name": "Environment 1",
+      "rank": 1,
+      "owner": {
+        "displayName": "Vincent Cheung",
+        "url": "https://app.vssps.visualstudio.com/A1576a92f-fb6f-4f6f-85ed-75b0c9d16617/_apis/Identities/001677bb-7b6b-6deb-bb82-379cbe19f842",
+        "_links": {
+          "avatar": {
+            "href": "https://vc13837.visualstudio.com/_apis/GraphProfile/MemberAvatars/aad.MDAxNjc3YmItN2I2Yi03ZGViLWJiODItMzc5Y2JlMTlmODQy"
+          }
+        },
+        "id": "001677bb-7b6b-6deb-bb82-379cbe19f842",
+        "uniqueName": "vincent.cheung@automationlogic.onmicrosoft.com",
+        "imageUrl": "https://vc13837.visualstudio.com/_api/_common/identityImage?id=001677bb-7b6b-6deb-bb82-379cbe19f842",
+        "descriptor": "aad.MDAxNjc3YmItN2I2Yi03ZGViLWJiODItMzc5Y2JlMTlmODQy"
+      },
+      "variables": {},
+      "variableGroups": [],
+      "preDeployApprovals": {
+        "approvals": [
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 4
+          }
+        ],
+        "approvalOptions": {
+          "requiredApproverCount": null,
+          "releaseCreatorCanBeApprover": false,
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "timeoutInMinutes": 0,
+          "executionOrder": 1
+        }
+      },
+      "deployStep": {
+        "id": 5
+      },
+      "postDeployApprovals": {
+        "approvals": [
+          {
+            "rank": 1,
+            "isAutomated": true,
+            "isNotificationOn": false,
+            "id": 6
+          }
+        ],
+        "approvalOptions": {
+          "requiredApproverCount": null,
+          "releaseCreatorCanBeApprover": false,
+          "autoTriggeredAndPreviousEnvironmentApprovedCanBeSkipped": false,
+          "enforceIdentityRevalidation": false,
+          "timeoutInMinutes": 0,
+          "executionOrder": 2
+        }
+      },
+      "deployPhases": [
+        {
+          "deploymentInput": {
+            "parallelExecution": {
+              "parallelExecutionType": "none"
+            },
+            "skipArtifactsDownload": false,
+            "artifactsDownloadInput": {
+              "downloadInputs": [
+                {
+                  "artifactItems": [],
+                  "alias": "demoartifact",
+                  "artifactType": "Build",
+                  "artifactDownloadMode": "All"
+                }
+              ]
+            },
+            "queueId": 116,
+            "demands": [],
+            "enableAccessToken": false,
+            "timeoutInMinutes": 0,
+            "jobCancelTimeoutInMinutes": 1,
+            "condition": "succeeded()",
+            "overrideInputs": {}
+          },
+          "rank": 1,
+          "phaseType": 1,
+          "name": "Agent phase",
+          "workflowTasks": [
+            {
+              "taskId": "94a74903-f93f-4075-884f-dc11f34058b4",
+              "version": "2.*",
+              "name": "Azure Deployment ",
+              "refName": "",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "ConnectedServiceName": "2de1dfae-62ec-4407-99aa-9f9b0d34e7b1",
+                "action": "Create Or Update Resource Group",
+                "resourceGroupName": "$(resourcegroup)",
+                "location": "north europe",
+                "templateLocation": "Linked artifact",
+                "csmFileLink": "",
+                "csmParametersFileLink": "",
+                "csmFile": "$(System.DefaultWorkingDirectory)/$(Release.Primaryartifactsourcealias)/templates/infraTemplate.json",
+                "csmParametersFile": "$(System.DefaultWorkingDirectory)/$(Release.Primaryartifactsourcealias)/templates/infraParameters.json",
+                "overrideParameters": "-dbname $(dbname) -dblocation \"westeurope\" -dblocationName \"West Europe\" -defaultExperience \"DocumentDB\" -pairedLocation \"northeurope\" -pairedLocationName \"North Europe\" -resourceName $(clusterName) -servicePrincipalClientId $(servicePrincipalClientId) -servicePrincipalClientSecret $(servicePrincipalClientSecret)",
+                "deploymentMode": "Incremental",
+                "enableDeploymentPrerequisites": "None",
+                "deploymentGroupEndpoint": "",
+                "project": "",
+                "deploymentGroupName": "",
+                "copyAzureVMTags": "true",
+                "runAgentServiceAsUser": "false",
+                "userName": "",
+                "password": "",
+                "outputVariable": "",
+                "deploymentOutputs": ""
+              }
+            },
+            {
+              "taskId": "46e4be58-730b-4389-8a2f-ea10b3e5e815",
+              "version": "1.*",
+              "name": "Update kub.yaml",
+              "refName": "",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": false,
+              "timeoutInMinutes": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "connectedServiceNameARM": "044303f6-36d0-46f1-96f4-ffbb8519a583",
+                "scriptLocation": "inlineScript",
+                "scriptPath": "",
+                "inlineScript": "PRIMARY_KEY=`az cosmosdb list-keys -n $(dbname) -g $(resourcegroup) --query primaryMasterKey | sed \"s/^.\\(.*\\).$/\\1/\"`\n\nhostname=\"https://$(dbname).documents.azure.com:443/\"\n\necho $hostname\necho $PRIMARY_KEY\n\nsed -i \"s|db_hostname|$hostname|\" $(Release.Primaryartifactsourcealias)/deploy/kub.yaml\nsed -i \"s|db_primarykey|$PRIMARY_KEY|\" $(Release.Primaryartifactsourcealias)/deploy/kub.yaml\n\ncat $(Release.Primaryartifactsourcealias)/deploy/kub.yaml",
+                "args": "",
+                "cwd": "$(System.DefaultWorkingDirectory)",
+                "failOnStandardError": "true"
+              }
+            },
+            {
+              "taskId": "46e4be58-730b-4389-8a2f-ea10b3e5e815",
+              "version": "1.*",
+              "name": "Provision Containers",
+              "refName": "",
+              "enabled": true,
+              "alwaysRun": false,
+              "continueOnError": true,
+              "timeoutInMinutes": 0,
+              "definitionType": "task",
+              "overrideInputs": {},
+              "condition": "succeeded()",
+              "inputs": {
+                "connectedServiceNameARM": "2de1dfae-62ec-4407-99aa-9f9b0d34e7b1",
+                "scriptLocation": "inlineScript",
+                "scriptPath": "",
+                "inlineScript": "az aks get-credentials --resource-group $(resourcegroup) --name $(clusterName)\n\nkubectl get nodes\n\nkubectl apply -f $(System.DefaultWorkingDirectory)/$(Release.Primaryartifactsourcealias)/deploy/kub.yaml\n\nK8S=nodejsappskube\nwhile [ 1 ]\ndo\n\tEXTERNAL_IP=`kubectl describe services $K8S | grep \"LoadBalancer Ingress\" | grep -oE \"\\b([0-9]{1,3}\\.){3}[0-9]{1,3}\\b\"`\n\t#echo $EXTERNAL_IP\n\tif [ \"$EXTERNAL_IP\" = \"\" ]\n\t\tthen\n\t\t\techo \"Waiting for Public IP... Please hold on...\"\n\t\telse\n\t\t\techo \"Your IP: $EXTERNAL_IP\"\n\t\t\texit\n\tfi\n    \tsleep 6\ndone",
+                "args": "",
+                "cwd": "$(System.DefaultWorkingDirectory)",
+                "failOnStandardError": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "environmentOptions": {
+        "emailNotificationType": "OnlyOnFailure",
+        "emailRecipients": "release.environment.owner;release.creator",
+        "skipArtifactsDownload": false,
+        "timeoutInMinutes": 0,
+        "enableAccessToken": false,
+        "publishDeploymentStatus": true,
+        "badgeEnabled": false,
+        "autoLinkWorkItems": false,
+        "pullRequestDeploymentEnabled": false
+      },
+      "demands": [],
+      "conditions": [
+        {
+          "name": "ReleaseStarted",
+          "conditionType": 1,
+          "value": ""
+        }
+      ],
+      "executionPolicy": {
+        "concurrencyCount": 1,
+        "queueDepthCount": 0
+      },
+      "schedules": [],
+      "currentRelease": {
+        "id": 55,
+        "url": "https://vc13837.vsrm.visualstudio.com/d520005c-d1a2-43ed-8f88-096ee5e3b01a/_apis/Release/releases/55",
+        "_links": {}
+      },
+      "retentionPolicy": {
+        "daysToKeep": 30,
+        "releasesToKeep": 3,
+        "retainBuild": true
+      },
+      "processParameters": {},
+      "properties": {},
+      "preDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "postDeploymentGates": {
+        "id": 0,
+        "gatesOptions": null,
+        "gates": []
+      },
+      "environmentTriggers": [],
+      "badgeUrl": "https://vc13837.vsrm.visualstudio.com/_apis/public/Release/badge/d520005c-d1a2-43ed-8f88-096ee5e3b01a/2/2"
+    }
+  ],
+  "artifacts": [
+    {
+      "sourceId": "d520005c-d1a2-43ed-8f88-096ee5e3b01a:81",
+      "type": "Build",
+      "alias": "demoartifact",
+      "definitionReference": {
+        "artifactSourceDefinitionUrl": {
+          "id": "https://vc13837.visualstudio.com/_permalink/_build/index?collectionId=f07eb9e0-3973-4408-bc39-54602108168f&projectId=d520005c-d1a2-43ed-8f88-096ee5e3b01a&definitionId=81",
+          "name": ""
+        },
+        "defaultVersionBranch": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionSpecific": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionTags": {
+          "id": "",
+          "name": ""
+        },
+        "defaultVersionType": {
+          "id": "latestType",
+          "name": "Latest"
+        },
+        "definition": {
+          "id": "81",
+          "name": "demoartifact"
+        },
+        "project": {
+          "id": "d520005c-d1a2-43ed-8f88-096ee5e3b01a",
+          "name": "Kube"
+        }
+      },
+      "isPrimary": true,
+      "isRetained": false
+    }
+  ],
+  "triggers": [
+    {
+      "artifactAlias": "demoartifact",
+      "triggerConditions": [
+        {
+          "sourceBranch": "master",
+          "tags": [],
+          "useBuildDefinitionBranch": false,
+          "createReleaseOnBuildTagging": false
+        }
+      ],
+      "triggerType": 1
+    }
+  ],
+  "releaseNameFormat": "Release-$(rev:r)",
+  "tags": [],
+  "properties": {
+    "DefinitionCreationSource": {
+      "$type": "System.String",
+      "$value": "ReleaseClone"
+    }
+  },
+  "id": 2,
+  "name": "10xDemo",
+  "path": "\\",
+  "projectReference": null,
+  "url": "https://vc13837.vsrm.visualstudio.com/d520005c-d1a2-43ed-8f88-096ee5e3b01a/_apis/Release/definitions/2",
+  "_links": {
+    "self": {
+      "href": "https://vc13837.vsrm.visualstudio.com/d520005c-d1a2-43ed-8f88-096ee5e3b01a/_apis/Release/definitions/2"
+    },
+    "web": {
+      "href": "https://vc13837.visualstudio.com/d520005c-d1a2-43ed-8f88-096ee5e3b01a/_release?definitionId=2"
+    }
+  }
+}
