@@ -1,0 +1,32 @@
+{
+  "name": "node-todo",
+  "version": "0.0.1",
+  "description": "Simple todo application using MySQL.",
+  "main": "server.js",
+  "author": "Patrick F. Marques",
+  "standard": {
+    "globals": [
+      "angular"
+    ]
+  },
+  "scripts": {
+    "integration-tests": "mocha tests/integration",
+    "test": "mocha tests/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "mysql2": "^1.5.3"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "request": "^2.81.0",
+    "should": "^11.2.1",
+    "sinon": "^2.3.1",
+    "supertest": "^3.0.0",
+    "documentdb": "latest",
+    "debug": "latest"
+  }
+}
